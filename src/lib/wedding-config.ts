@@ -13,7 +13,7 @@ export const wedding = {
   brideAr: "ميرال",
   groomAr: "محمد",
   monogram: "M&M",
-  date: new Date("2026-12-12T18:00:00"),
+ date: new Date("2026-07-10T19:00:00"),
   welcome:
     "With joy in our hearts, we invite you to share in the celebration of our love — a day woven from years of laughter, quiet moments, and a thousand small yeses.",
   ceremony: {
