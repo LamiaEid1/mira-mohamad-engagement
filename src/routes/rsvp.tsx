@@ -13,7 +13,7 @@ export const Route = createFileRoute("/rsvp")({
       { name: "description", content: "Kindly respond by November 1, 2026." },
     ],
   }),
-  component: Rsvp;
+  component: Rsvp,
 });
 
 const schema = z.object({
