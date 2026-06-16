@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: `${wedding.brideEn} & ${wedding.groomEn} — You're Invited` },
-      { name: "description", content: "An invitation to the wedding of Meeral and Mohammed." },
+      { name: "description", content: "An invitation to the wedding of Miral and Mohammed." },
     ],
   }),
   component: Home,
@@ -21,6 +21,7 @@ type Stage = "closed" | "opening" | "revealed";
 
 function Home() {
   const [stage, setStage] = useState<Stage>("closed");
+  const [imgError, setImgError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const open = () => {
@@ -29,11 +30,18 @@ function Home() {
   };
 
   useEffect(() => {
-    if (stage === "opening" && videoRef.current) {
-      const v = videoRef.current;
-      v.currentTime = 0;
-      v.play().catch(() => setStage("revealed"));
+    if (stage !== "opening") return;
+    let timer: ReturnType<typeof setTimeout>;
+    const v = videoRef.current;
+    if (!v) {
+      timer = setTimeout(() => setStage("revealed"), 500);
+      return () => clearTimeout(timer);
     }
+    v.currentTime = 0;
+    v.play().catch(() => {
+      timer = setTimeout(() => setStage("revealed"), 500);
+    });
+    return () => clearTimeout(timer);
   }, [stage]);
 
   return (
@@ -51,11 +59,22 @@ function Home() {
             >
               <div className="relative overflow-hidden rounded-sm shadow-[0_30px_80px_-30px_rgba(58,42,20,0.5)]">
                 {stage === "closed" ? (
-                  <img
-                    src={wedding.envelopeImage}
-                    alt="A sealed wedding envelope"
-                    className="block w-full"
-                  />
+                  imgError ? (
+                    <div className="flex aspect-4/3 w-full flex-col items-center justify-center gap-4 bg-cream text-gold-deep">
+                      <svg viewBox="0 0 80 60" className="w-32 opacity-60" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <rect x="2" y="10" width="76" height="48" rx="3" />
+                        <path d="M2 10 L40 38 L78 10" />
+                      </svg>
+                      <span className="font-script text-2xl">{wedding.monogram}</span>
+                    </div>
+                  ) : (
+                    <img
+                      src={wedding.envelopeImage}
+                      alt="A sealed wedding envelope"
+                      className="block w-full"
+                      onError={() => setImgError(true)}
+                    />
+                  )
                 ) : (
                   <video
                     ref={videoRef}
@@ -70,7 +89,7 @@ function Home() {
                 )}
               </div>
               {stage === "closed" && (
-                <span className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 animate-pulse-seal rounded-full bg-[var(--ink)]/70 px-6 py-3 text-[0.65rem] uppercase tracking-[0.45em] text-[var(--ivory)] backdrop-blur">
+                <span className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 animate-pulse-seal rounded-full bg-(--ink)/70 px-6 py-3 text-[0.65rem] uppercase tracking-[0.45em] text-ivory backdrop-blur">
                   Tap to Open
                 </span>
               )}

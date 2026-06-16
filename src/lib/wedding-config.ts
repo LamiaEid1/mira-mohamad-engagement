@@ -4,11 +4,11 @@ import photo3 from "@/assets/photo-3.jpg";
 import photo4 from "@/assets/photo-4.jpg";
 import photo5 from "@/assets/photo-5.jpg";
 import photo6 from "@/assets/photo-6.jpg";
-import envelopeAsset from "@/assets/envelope-closed.asset.json";
-import openingAsset from "@/assets/envelope-opening.asset.json";
+import envelopeImg from "@/assets/env.png";
+import envelopeVideo from "@/assets/envet.mov";
 
 export const wedding = {
-  brideEn: "Meeral",
+  brideEn: "Miral",
   groomEn: "Mohammed",
   brideAr: "ميرال",
   groomAr: "محمد",
@@ -54,8 +54,8 @@ export const wedding = {
     },
   ],
   gallery: [photo1, photo2, photo3, photo4, photo5, photo6],
-  envelopeImage: envelopeAsset.url,
-  envelopeVideo: openingAsset.url,
+  envelopeImage: envelopeImg,
+  envelopeVideo: envelopeVideo,
 };
 
 export type Wedding = typeof wedding;
