@@ -11,7 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Nav } from "@/components/Nav";
 import { PageTransition } from "@/components/PageTransition";
 
 function NotFoundComponent() {
@@ -96,14 +95,14 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <Nav />
-      <main className="min-h-screen pt-20">
+      <main className="min-h-screen">
         <PageTransition>
           <Outlet />
         </PageTransition>
       </main>
-      <footer className="border-t border-[var(--border)] py-10 text-center text-xs uppercase tracking-[0.3em] text-[var(--gold-deep)]">
-        Meeral · Mohammed — 12 . 12 . 2026
+      <footer className="py-10 text-center font-script text-2xl text-[var(--gold-deep)]">
+        Meeral · Mohammed
+        <div className="mt-1 text-[0.65rem] uppercase tracking-[0.4em]">12 . 12 . 2026</div>
       </footer>
     </QueryClientProvider>
   );
