@@ -2,10 +2,11 @@ import photo1 from "@/assets/photo-1.jpg";
 import photo2 from "@/assets/photo-2.jpg";
 import photo3 from "@/assets/photo-3.jpg";
 import photo4 from "@/assets/photo-4.jpg";
-import photo5 from "@/assets/photo-5.jpg";
+import photo5 from "@/assets/photo-5.png";
 import photo6 from "@/assets/photo-6.jpg";
 import envelopeImg from "@/assets/env.png";
 import envelopeVideo from "@/assets/envet.mov";
+import kidsImg from "@/assets/kids.png";
 
 export const wedding = {
   brideEn: "Miral",
@@ -20,19 +21,19 @@ export const wedding = {
     title: "The Ceremony",
     date: "Saturday, December 12, 2026",
     time: "6:00 PM",
-    venue: "Al Bustan Palace",
-    address: "Quron Beach, Muscat, Oman",
+    venue: "Beit El Rahman Mosque",
+    address: "Tripoli, Lebanon",
   },
   reception: {
     title: "The Reception",
     date: "Saturday, December 12, 2026",
     time: "8:00 PM",
-    venue: "Al Bustan Palace — Grand Ballroom",
-    address: "Quron Beach, Muscat, Oman",
+    venue: "Beit El Rahman Mosque",
+    address: "Tripoli, Lebanon",
   },
   dressCode: "Black tie · Cream, gold, and deep jewel tones welcomed",
   mapEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.612!2d58.6406!3d23.5436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMyJzM3LjAiTiA1OMKwMzgnMjYuMCJF!5e0!3m2!1sen!2s!4v1700000000000",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.5!2d35.8407921!3d34.398929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1521f7288a5f5343%3A0x414ef4100bc74b81!2sBeit%20El%20Rahman%20Mosque!5e0!3m2!1sen!2s!4v1700000000000",
   story: [
     {
       year: "2019",
@@ -56,6 +57,7 @@ export const wedding = {
   gallery: [photo1, photo2, photo3, photo4, photo5, photo6],
   envelopeImage: envelopeImg,
   envelopeVideo: envelopeVideo,
+  kidsImage: kidsImg,
 };
 
 export type Wedding = typeof wedding;
