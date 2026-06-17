@@ -75,7 +75,13 @@ function Home() {
   const open = () => {
     if (stage !== "closed") return;
     audioRef.current?.play().catch(() => {});
-    setStage("opening");
+    const v = videoRef.current;
+    // Skip the video if it hasn't buffered enough (common on mobile)
+    if (!v || v.readyState < 3) {
+      setStage("revealed");
+    } else {
+      setStage("opening");
+    }
   };
 
   useEffect(() => {
