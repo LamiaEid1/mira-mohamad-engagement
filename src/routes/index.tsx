@@ -87,7 +87,10 @@ function Home() {
       return () => clearTimeout(timer);
     }
     v.currentTime = 0;
-    v.play().catch(() => { timer = setTimeout(() => setStage("revealed"), 500); });
+    const playPromise = v.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => { timer = setTimeout(() => setStage("revealed"), 500); });
+    }
     return () => clearTimeout(timer);
   }, [stage]);
 
@@ -126,7 +129,19 @@ function Home() {
               aria-label="Tap to open invitation"
             >
               <div className="relative overflow-hidden rounded-sm shadow-[0_30px_80px_-30px_rgba(58,42,20,0.5)]">
-                {stage === "closed" ? (
+                {/* Video always in DOM so it preloads; shown only during opening */}
+                <video
+                  ref={videoRef}
+                  src={wedding.envelopeVideo}
+                  muted
+                  playsInline
+                  preload="auto"
+                  onEnded={() => setStage("revealed")}
+                  onError={() => setStage("revealed")}
+                  className={`block w-full ${stage === "opening" ? "" : "hidden"}`}
+                />
+
+                {stage === "closed" && (
                   imgError ? (
                     <div className="flex aspect-4/3 w-full flex-col items-center justify-center gap-4 bg-cream text-gold-deep">
                       <svg viewBox="0 0 80 60" className="w-32 opacity-60" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -143,17 +158,6 @@ function Home() {
                       onError={() => setImgError(true)}
                     />
                   )
-                ) : (
-                  <video
-                    ref={videoRef}
-                    src={wedding.envelopeVideo}
-                    muted
-                    playsInline
-                    preload="auto"
-                    onEnded={() => setStage("revealed")}
-                    onError={() => setStage("revealed")}
-                    className="block w-full"
-                  />
                 )}
               </div>
               {stage === "closed" && (
