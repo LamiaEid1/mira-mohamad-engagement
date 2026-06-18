@@ -106,14 +106,14 @@ var Route$5 = createRootRouteWithContext()({
 				name: "viewport",
 				content: "width=device-width, initial-scale=1"
 			},
-			{ title: "Meeral & Mohammed — A Wedding Invitation" },
+			{ title: " Miral & Mohammed — A Wedding Invitation" },
 			{
 				name: "description",
-				content: "Join Meeral and Mohammed on December 12, 2026 for an evening of love, light, and gold."
+				content: "Join Miral and Mohammed on December 12, 2026 for an evening of love, light, and gold."
 			},
 			{
 				property: "og:title",
-				content: "Meeral & Mohammed — A Wedding Invitation"
+				content: "Miral & Mohammed — A Wedding Invitation"
 			},
 			{
 				property: "og:description",

@@ -99,13 +99,6 @@ function Details() {
         <Reveal delay={120}><EventCard event={wedding.reception} monogram="M" /></Reveal>
       </div>
 
-      <Reveal>
-        <div className="mt-20 text-center">
-          <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Dress Code</p>
-          <p className="mt-3 font-serif text-2xl italic text-[var(--ink)]">{wedding.dressCode}</p>
-        </div>
-      </Reveal>
-
       <Divider className="mt-20" />
 
       <Reveal>

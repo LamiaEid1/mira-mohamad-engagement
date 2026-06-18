@@ -15,14 +15,14 @@ var wedding = {
 	welcome: "With joy in our hearts, we invite you to share in the celebration of our love — a day woven from years of laughter, quiet moments, and a thousand small yeses.",
 	ceremony: {
 		title: "The Ceremony",
-		date: "Saturday, December 12, 2026",
+		date: "Friday, July 10, 2026",
 		time: "6:00 PM",
 		venue: "Beit El Rahman Mosque",
 		address: "Tripoli, Lebanon"
 	},
 	reception: {
 		title: "The Reception",
-		date: "Saturday, December 12, 2026",
+		date: "Friday, July 10, 2026",
 		time: "8:00 PM",
 		venue: "Beit El Rahman Mosque",
 		address: "Tripoli, Lebanon"
@@ -31,9 +31,9 @@ var wedding = {
 	mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.5!2d35.8407921!3d34.398929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1521f7288a5f5343%3A0x414ef4100bc74b81!2sBeit%20El%20Rahman%20Mosque!5e0!3m2!1sen!2s!4v1700000000000",
 	story: [
 		{
-			year: "2019",
+			year: "2004",
 			title: "How We Met",
-			body: "A spilled cup of cardamom coffee in a Muscat bookstore. He apologized. She laughed. The book she was holding became the first thing we shared.",
+			body: "Two classmates in 2004. Childhood love. Fifteen years later, fate brought us back together at Papaya.",
 			photo: photo_1_default
 		},
 		{

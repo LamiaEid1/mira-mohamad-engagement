@@ -16,13 +16,13 @@ function downloadICS() {
 	const ics = [
 		"BEGIN:VCALENDAR",
 		"VERSION:2.0",
-		"PRODID:-//Meeral & Mohammed//Wedding//EN",
+		"PRODID:-//Miral & Mohammed//Wedding//EN",
 		"BEGIN:VEVENT",
-		`UID:wedding-${start.getTime()}@meeral-mohammed`,
+		`UID:wedding-${start.getTime()}@miral-mohammed`,
 		`DTSTAMP:${toICS(/* @__PURE__ */ new Date())}`,
 		`DTSTART:${toICS(start)}`,
 		`DTEND:${toICS(end)}`,
-		"SUMMARY:Meeral & Mohammed — Wedding",
+		"SUMMARY:Miral & Mohammed — Wedding",
 		`LOCATION:${wedding.ceremony.venue}, ${wedding.ceremony.address}`,
 		"DESCRIPTION:With joy in our hearts, we invite you to celebrate.",
 		"END:VEVENT",
@@ -32,7 +32,7 @@ function downloadICS() {
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement("a");
 	a.href = url;
-	a.download = "meeral-mohammed-wedding.ics";
+	a.download = "miral-mohammed-wedding.ics";
 	a.click();
 	URL.revokeObjectURL(url);
 }

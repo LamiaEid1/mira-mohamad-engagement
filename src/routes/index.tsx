@@ -275,9 +275,10 @@ function Home() {
             </div>
 
             <Reveal>
-              <div className="mt-20 text-center">
-                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Dress Code</p>
-                <p className="mt-3 font-serif text-2xl italic text-[var(--ink)]">{wedding.dressCode}</p>
+              <div className="mt-16 text-center">
+                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Please Note</p>
+                <p className="mt-3 font-serif text-2xl italic text-[var(--ink)]">Adults only</p>
+                <p className="mt-2 text-sm text-[var(--ink)]/70">{wedding.kidsNote}</p>
               </div>
             </Reveal>
 
