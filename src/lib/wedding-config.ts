@@ -6,6 +6,7 @@ import photo5 from "@/assets/photo-5.png";
 import photo6 from "@/assets/photo-6.jpg";
 import envelopeImg from "@/assets/env.png";
 import envelopeVideo from "@/assets/envet.mov";
+import envelopeVideoMp4 from "@/assets/envet.mp4";
 import kidsImg from "@/assets/kids.png";
 
 export const wedding = {
@@ -58,6 +59,7 @@ export const wedding = {
   gallery: [photo2, photo1, photo3, photo4, photo5, photo6],
   envelopeImage: envelopeImg,
   envelopeVideo: envelopeVideo,
+  envelopeVideoMp4: envelopeVideoMp4,
   kidsImage: kidsImg,
 };
 

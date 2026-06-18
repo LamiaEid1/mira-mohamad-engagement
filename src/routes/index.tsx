@@ -75,13 +75,7 @@ function Home() {
   const open = () => {
     if (stage !== "closed") return;
     audioRef.current?.play().catch(() => {});
-    const v = videoRef.current;
-    // Skip the video if it hasn't buffered enough (common on mobile)
-    if (!v || v.readyState < 3) {
-      setStage("revealed");
-    } else {
-      setStage("opening");
-    }
+    setStage("opening");
   };
 
   useEffect(() => {
@@ -138,14 +132,16 @@ function Home() {
                 {/* Video always in DOM so it preloads; shown only during opening */}
                 <video
                   ref={videoRef}
-                  src={wedding.envelopeVideo}
                   muted
                   playsInline
                   preload="auto"
                   onEnded={() => setStage("revealed")}
                   onError={() => setStage("revealed")}
                   className={`block w-full ${stage === "opening" ? "" : "hidden"}`}
-                />
+                >
+                  <source src={wedding.envelopeVideoMp4} type="video/mp4" />
+                  <source src={wedding.envelopeVideo} type="video/quicktime" />
+                </video>
 
                 {stage === "closed" && (
                   imgError ? (
