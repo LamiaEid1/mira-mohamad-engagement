@@ -56,7 +56,7 @@ export const wedding = {
       photo: photo6,
     },
   ],
-  gallery: [photo2, photo1, photo3, photo4, photo5, photo6],
+  gallery: [ photo1, photo3, photo5, photo1],
   envelopeImage: envelopeImg,
   envelopeVideo: envelopeVideo,
   envelopeVideoMp4: envelopeVideoMp4,

@@ -54,9 +54,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Meeral & Mohammed — A Wedding Invitation" },
-      { name: "description", content: "Join Meeral and Mohammed on December 12, 2026 for an evening of love, light, and gold." },
-      { property: "og:title", content: "Meeral & Mohammed — A Wedding Invitation" },
+      { title: "Miral & Mohammed — A Wedding Invitation" },
+      { name: "description", content: "Join Miral and Mohammed on December 12, 2026 for an evening of love, light, and gold." },
+      { property: "og:title", content: "Miral & Mohammed — A Wedding Invitation" },
       { property: "og:description", content: "Join us on December 12, 2026." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -101,8 +101,8 @@ function RootComponent() {
         </PageTransition>
       </main>
       <footer className="py-10 text-center font-script text-2xl text-[var(--gold-deep)]">
-        Meeral · Mohammed
-        <div className="mt-1 text-[0.65rem] uppercase tracking-[0.4em]">12 . 12 . 2026</div>
+        Miral · Mohammed
+        <div className="mt-1 text-[0.65rem] uppercase tracking-[0.4em]">10 . 7 . 2026</div>
       </footer>
     </QueryClientProvider>
   );

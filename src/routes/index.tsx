@@ -13,6 +13,12 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: `${wedding.brideEn} & ${wedding.groomEn} — You're Invited` },
       { name: "description", content: "An invitation to the wedding of Miral and Mohammed." },
+      { property: "og:title", content: `${wedding.brideEn} & ${wedding.groomEn} — You're Invited` },
+      { property: "og:description", content: "An invitation to the wedding of Miral and Mohammed." },
+      { property: "og:image", content: "/og-image.png" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "/og-image.png" },
     ],
   }),
   component: Home,
@@ -162,33 +168,29 @@ function Home() {
                   )
                 )}
               </div>
-              {stage === "closed" && (
-                <span className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 animate-pulse-seal rounded-full bg-(--ink)/70 px-6 py-3 text-[0.65rem] uppercase tracking-[0.45em] text-ivory backdrop-blur">
-                  Tap to Open
-                </span>
-              )}
             </button>
           )}
 
           {stage === "revealed" && (
             <div className="animate-fade-rise flex flex-col items-center gap-10 py-6">
               <p className="font-script text-3xl text-[var(--gold-deep)]">You're invited</p>
-              <h1 className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center font-arabic text-5xl text-[var(--gold-deep)] sm:text-6xl">
-                <span>{wedding.brideAr}</span>
+              <h1 className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center font-script text-5xl text-[var(--gold-deep)] sm:text-6xl">
+                <span>{wedding.brideEn}</span>
                 <svg viewBox="0 0 24 24" className="h-8 w-8 text-[var(--gold)]" fill="currentColor" aria-hidden>
                   <path d="M12 21s-7-4.5-9.5-9C.5 8 3 4 7 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3 4 0 6.5 4 4.5 8-2.5 4.5-9.5 9-9.5 9z" />
                 </svg>
-                <span>{wedding.groomAr}</span>
+                <span>{wedding.groomEn}</span>
               </h1>
               <Divider />
-              <Countdown target={wedding.date} />
               <p className="text-center text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">
-                12 December 2026 · Muscat
+                10 July 2026 · Muscat
               </p>
+              <Countdown target={wedding.date} />
             </div>
           )}
         </div>
       </section>
+   
 
       {stage === "revealed" && (
         <>
@@ -201,109 +203,8 @@ function Home() {
               </p>
             </Reveal>
           </section>
-
-          <Reveal>
-            <div className="w-full overflow-hidden shadow-[0_20px_60px_-20px_rgba(58,42,20,0.35)]">
-              <img
-                src={wedding.kidsImage}
-                alt="These kids are getting engaged"
-                className="block w-full object-cover"
-              />
-            </div>
-          </Reveal>
-
           <Divider />
 
-          {/* ── OUR STORY ── */}
-          <section className="mx-auto max-w-5xl px-6 py-20 sm:px-12">
-            <Reveal>
-              <header className="text-center">
-                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Chapter One</p>
-                <h2 className="mt-3 font-script text-6xl text-[var(--gold-deep)] sm:text-7xl">Our Story</h2>
-                <Divider className="mt-6" />
-              </header>
-            </Reveal>
-
-            <ol className="relative mt-20">
-              <span className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[var(--gold)] to-transparent md:block" />
-              {wedding.story.map((m, i) => {
-                const right = i % 2 === 1;
-                return (
-                  <li key={m.year} className="relative mb-20 md:mb-28">
-                    <Reveal delay={i * 100}>
-                      <div className={`grid items-center gap-8 md:grid-cols-2 ${right ? "md:[&>*:first-child]:order-2" : ""}`}>
-                        <div className="overflow-hidden rounded-sm shadow-[0_20px_60px_-20px_rgba(58,42,20,0.4)]">
-                          <img src={m.photo} alt={m.title} loading="lazy" className="block aspect-[4/5] w-full object-cover" />
-                        </div>
-                        <div className={`text-center md:text-${right ? "right" : "left"}`}>
-                          <span className="font-script text-3xl text-[var(--gold-deep)]">{m.year}</span>
-                          <h3 className="mt-2 font-serif text-3xl text-[var(--ink)] sm:text-4xl">{m.title}</h3>
-                          <p className="mt-4 text-lg leading-relaxed text-[var(--ink)]/85">{m.body}</p>
-                        </div>
-                      </div>
-                    </Reveal>
-                    {i < wedding.story.length - 1 && <Divider className="mt-16" />}
-                  </li>
-                );
-              })}
-            </ol>
-          </section>
-
-          <Divider />
-
-          {/* ── THE DETAILS ── */}
-          <section className="mx-auto max-w-5xl px-6 py-20 sm:px-12">
-            <Reveal>
-              <header className="text-center">
-                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Chapter Two</p>
-                <h2 className="mt-3 font-script text-6xl text-[var(--gold-deep)] sm:text-7xl">The Details</h2>
-                <Divider className="mt-6" />
-              </header>
-            </Reveal>
-
-            <div className="mt-24 grid gap-16 sm:gap-10 md:grid-cols-2">
-              <Reveal>
-                <EventCard event={wedding.ceremony} monogram="M" />
-              </Reveal>
-              <Reveal delay={120}>
-                <EventCard event={wedding.reception} monogram="M" />
-              </Reveal>
-            </div>
-
-            <Reveal>
-              <div className="mt-16 text-center">
-                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Please Note</p>
-                <p className="mt-3 font-serif text-2xl italic text-[var(--ink)]">Adults only</p>
-                <p className="mt-2 text-sm text-[var(--ink)]/70">{wedding.kidsNote}</p>
-              </div>
-            </Reveal>
-
-            <Divider className="mt-20" />
-
-            <Reveal>
-              <div className="mt-12 text-center">
-                <h3 className="font-script text-4xl text-[var(--gold-deep)]">Find Your Way</h3>
-                <p className="mt-3 text-sm uppercase tracking-[0.3em] text-[var(--ink)]/70">{wedding.ceremony.venue}</p>
-                <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-sm border border-[var(--gold)] shadow-[0_20px_50px_-20px_rgba(58,42,20,0.3)]">
-                  <iframe
-                    src={wedding.mapEmbed}
-                    title="Venue map"
-                    className="block h-[380px] w-full"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-                <button
-                  onClick={downloadICS}
-                  className="mt-10 inline-flex items-center gap-3 border-y border-[var(--gold-deep)] px-8 py-3 text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)] transition-colors hover:bg-[var(--gold-deep)] hover:text-[var(--ivory)]"
-                >
-                  ✦ Add to Calendar ✦
-                </button>
-              </div>
-            </Reveal>
-          </section>
-
-          <Divider />
 
           {/* ── GALLERY ── */}
           <section className="mx-auto max-w-5xl px-6 py-20 sm:px-12">
@@ -390,9 +291,7 @@ function Home() {
                     <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Chapter Four</p>
                     <h2 className="mt-3 font-script text-6xl text-[var(--gold-deep)] sm:text-7xl">Kindly Reply</h2>
                     <Divider className="mt-6" />
-                    <p className="mx-auto mt-6 max-w-lg text-[var(--ink)]/80">
-                      Please respond by the first of November so we may prepare a place for you.
-                    </p>
+
                   </header>
                 </Reveal>
                 <Reveal delay={150}>
