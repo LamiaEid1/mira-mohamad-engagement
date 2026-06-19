@@ -59,9 +59,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Miral & Mohammed — A Wedding Invitation" },
       { property: "og:description", content: "Join us on December 12, 2026." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.png" },
+      { property: "og:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.jpg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

@@ -15,10 +15,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "An invitation to the wedding of Miral and Mohammed." },
       { property: "og:title", content: `${wedding.brideEn} & ${wedding.groomEn} — You're Invited` },
       { property: "og:description", content: "An invitation to the wedding of Miral and Mohammed." },
-      { property: "og:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.png" },
+      { property: "og:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.jpg" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://miral-mohamad-engagement.vercel.app/og-image.jpg" },
     ],
   }),
   component: Home,
@@ -205,6 +205,59 @@ function Home() {
           </section>
           <Divider />
 
+          {/* ── THE DETAILS ── */}
+          <section className="mx-auto max-w-5xl px-6 py-20 sm:px-12">
+            <Reveal>
+              <header className="text-center">
+                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Chapter Two</p>
+                <h2 className="mt-3 font-script text-6xl text-[var(--gold-deep)] sm:text-7xl">The Details</h2>
+                <Divider className="mt-6" />
+              </header>
+            </Reveal>
+
+            <div className="mt-24 grid gap-16 sm:gap-10 md:grid-cols-2">
+              <Reveal>
+                <EventCard event={wedding.ceremony} monogram="M" />
+              </Reveal>
+              <Reveal delay={120}>
+                <EventCard event={wedding.reception} monogram="M" />
+              </Reveal>
+            </div>
+
+            <Reveal>
+              <div className="mt-16 text-center">
+                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Please Note</p>
+                <p className="mt-3 font-serif text-2xl italic text-[var(--ink)]">Adults only</p>
+                <p className="mt-2 text-sm text-[var(--ink)]/70">{wedding.kidsNote}</p>
+              </div>
+            </Reveal>
+
+            <Divider className="mt-20" />
+
+            <Reveal>
+              <div className="mt-12 text-center">
+                <h3 className="font-script text-4xl text-[var(--gold-deep)]">Find Your Way</h3>
+                <p className="mt-3 text-sm uppercase tracking-[0.3em] text-[var(--ink)]/70">{wedding.ceremony.venue}</p>
+                <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-sm border border-[var(--gold)] shadow-[0_20px_50px_-20px_rgba(58,42,20,0.3)]">
+                  <iframe
+                    src={wedding.mapEmbed}
+                    title="Venue map"
+                    className="block h-[380px] w-full"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+                <button
+                  onClick={downloadICS}
+                  className="mt-10 inline-flex items-center gap-3 border-y border-[var(--gold-deep)] px-8 py-3 text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)] transition-colors hover:bg-[var(--gold-deep)] hover:text-[var(--ivory)]"
+                >
+                  ✦ Add to Calendar ✦
+                </button>
+              </div>
+            </Reveal>
+          </section>
+
+          <Divider />
 
           {/* ── GALLERY ── */}
           <section className="mx-auto max-w-5xl px-6 py-20 sm:px-12">
