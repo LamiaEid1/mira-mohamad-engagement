@@ -4,9 +4,9 @@ import photo3 from "@/assets/photo-3.jpg";
 import photo4 from "@/assets/photo-4.jpg";
 import photo5 from "@/assets/photo-5.png";
 import photo6 from "@/assets/photo-6.jpg";
-import envelopeImg from "@/assets/env.png";
+import envelopeImg from "@/assets/env.jpg";
 import envelopeVideo from "@/assets/envet.mov";
-import envelopeVideoMp4 from "@/assets/envet.mp4";
+import envelopeVideoMp4 from "@/assets/envet-compressed.mp4";
 import kidsImg from "@/assets/kids.png";
 
 export const wedding = {
