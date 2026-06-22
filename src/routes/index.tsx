@@ -208,23 +208,6 @@ function Home() {
           {/* ── THE DETAILS ── */}
           <section className="mx-auto max-w-5xl px-6 py-20 sm:px-12">
             <Reveal>
-              <header className="text-center">
-                <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Chapter Two</p>
-                <h2 className="mt-3 font-script text-6xl text-[var(--gold-deep)] sm:text-7xl">The Details</h2>
-                <Divider className="mt-6" />
-              </header>
-            </Reveal>
-
-            <div className="mt-24 grid gap-16 sm:gap-10 md:grid-cols-2">
-              <Reveal>
-                <EventCard event={wedding.ceremony} monogram="M" />
-              </Reveal>
-              <Reveal delay={120}>
-                <EventCard event={wedding.reception} monogram="M" />
-              </Reveal>
-            </div>
-
-            <Reveal>
               <div className="mt-16 text-center">
                 <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Please Note</p>
                 <p className="mt-3 font-serif text-2xl italic text-[var(--ink)]">Adults only</p>
@@ -339,82 +322,7 @@ function Home() {
               </div>
             ) : (
               <>
-                <Reveal>
-                  <header className="text-center">
-                    <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)]">Chapter Four</p>
-                    <h2 className="mt-3 font-script text-6xl text-[var(--gold-deep)] sm:text-7xl">Kindly Reply</h2>
-                    <Divider className="mt-6" />
-
-                  </header>
-                </Reveal>
-                <Reveal delay={150}>
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className="mx-auto mt-16 grid max-w-xl gap-8 text-left"
-                    noValidate
-                  >
-                    <Field label="Full Name" error={errors.name?.message}>
-                      <input
-                        type="text"
-                        autoComplete="name"
-                        className="gold-underline w-full text-lg text-[var(--ink)] placeholder:text-[var(--ink)]/40"
-                        placeholder="Your full name"
-                        {...register("name")}
-                      />
-                    </Field>
-                    <Field label="Will You Attend?" error={errors.attending?.message}>
-                      <div className="flex gap-8 pt-2">
-                        {(["yes", "no"] as const).map((v) => (
-                          <label key={v} className="flex cursor-pointer items-center gap-3 text-[var(--ink)]">
-                            <input type="radio" value={v} {...register("attending")} className="peer sr-only" />
-                            <span className="grid h-5 w-5 place-items-center rounded-full border border-[var(--gold-deep)] peer-checked:bg-[var(--gold-deep)]">
-                              <span className="h-2 w-2 rounded-full bg-[var(--ivory)] opacity-0 peer-checked:opacity-100" />
-                            </span>
-                            <span className="text-lg italic">
-                              {v === "yes" ? "Joyfully accepts" : "Regretfully declines"}
-                            </span>
-                          </label>
-                        ))}
-                      </div>
-                    </Field>
-                    <Field label="Number of Guests" error={errors.guests?.message}>
-                      <input
-                        type="number"
-                        min={1}
-                        max={8}
-                        className="gold-underline w-full text-lg text-[var(--ink)]"
-                        {...register("guests")}
-                      />
-                    </Field>
-                    <Field label="Dietary Notes" error={errors.dietary?.message}>
-                      <input
-                        type="text"
-                        className="gold-underline w-full text-lg text-[var(--ink)] placeholder:text-[var(--ink)]/40"
-                        placeholder="Allergies, preferences (optional)"
-                        {...register("dietary")}
-                      />
-                    </Field>
-                    <Field label="A Note to the Couple" error={errors.message?.message}>
-                      <textarea
-                        rows={4}
-                        className="gold-underline w-full resize-none text-lg text-[var(--ink)] placeholder:text-[var(--ink)]/40"
-                        placeholder="A wish, a memory, anything you'd like to share..."
-                        {...register("message")}
-                      />
-                    </Field>
-                    <div className="flex justify-center pt-4">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="group inline-flex items-center gap-4 border-y border-[var(--gold-deep)] px-10 py-4 text-xs uppercase tracking-[0.4em] text-[var(--gold-deep)] transition-colors hover:bg-[var(--gold-deep)] hover:text-[var(--ivory)] disabled:opacity-50"
-                      >
-                        <span className="h-px w-6 bg-current" />
-                        {isSubmitting ? "Sending" : "Send Reply"}
-                        <span className="h-px w-6 bg-current" />
-                      </button>
-                    </div>
-                  </form>
-                </Reveal>
+                
               </>
             )}
           </section>
@@ -424,35 +332,6 @@ function Home() {
   );
 }
 
-function EventCard({
-  event,
-  monogram,
-}: {
-  event: { title: string; date: string; time: string; venue: string; address: string };
-  monogram: string;
-}) {
-  return (
-    <div className="gold-frame relative bg-[var(--card)] p-8 text-center sm:p-12">
-      <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-        <WaxSeal letters={monogram} size={72} />
-      </div>
-      <h3 className="mt-6 font-script text-4xl text-[var(--gold-deep)]">{event.title}</h3>
-      <Divider className="mt-4" />
-      <dl className="mt-6 space-y-4 text-[var(--ink)]">
-        <div>
-          <dt className="text-[0.65rem] uppercase tracking-[0.35em] text-[var(--gold-deep)]">When</dt>
-          <dd className="mt-1 text-lg">{event.date}</dd>
-          <dd className="font-serif text-2xl italic">{event.time}</dd>
-        </div>
-        <div>
-          <dt className="text-[0.65rem] uppercase tracking-[0.35em] text-[var(--gold-deep)]">Where</dt>
-          <dd className="mt-1 text-lg">{event.venue}</dd>
-          <dd className="text-sm text-[var(--ink)]/70">{event.address}</dd>
-        </div>
-      </dl>
-    </div>
-  );
-}
 
 function Field({
   label,
